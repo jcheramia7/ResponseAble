@@ -24,7 +24,8 @@
         "philippfrenzel/yii2fullcalendar":"*",
         "yii2mod/yii2-google-maps-markers": "*",
         "yooper/php-text-analysis": "v1.1.3.1",
-        "abhi1693/yii2-sms": "2.0.0"
+        "abhi1693/yii2-sms": "2.0.0",
+	   "silex/silex":"~1.1"
 
     },
     "require-dev": {
