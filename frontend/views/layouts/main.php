@@ -148,27 +148,6 @@ AppAsset::register($this);
                         </ul>
                     </li>
 
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-success">1</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 0 chat</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <iframe
-                                            width="290"
-                                            height="270"
-                                            src="https://console.api.ai/api-client/demo/embedded/0ed071c0-5b39-48b5-ad14-64c17fc2e5cc">
-                                    </iframe>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -302,7 +281,7 @@ AppAsset::register($this);
                 ?>
 
                 <li><a href="index.php"><i class="fa fa-heartbeat"></i> <span>Donation</span></a></li>
-                <li><a href="index.php"><i class="fa fa-heartbeat"></i> <span>Chatbot</span></a></li>
+                <li><a href="index.php?r=site/chatbot"><i class="fa fa-heartbeat"></i> <span>Chatbot</span></a></li>
 
                 <li><a href="index.php"><i class="fa fa-book"></i> <span>Manual</span></a></li>
             

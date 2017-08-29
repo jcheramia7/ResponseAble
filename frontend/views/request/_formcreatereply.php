@@ -28,13 +28,53 @@ use yii\widgets\ActiveForm;
     </div>
 
 
-        <?= $form->field($model, 'vehicle_plate_number')->dropDownList(
-            ArrayHelper::map(Vehicle::find()->all(), 'plate_number', 'plate_number'),
-            [
-                'prompt' => 'Vehicle ',
-
-            ]); ?>
-
+    <?php
+        if($model->supply == 1){
+            echo "PLATE NUMBER: POI-526<br>
+                  Model: U-Haul<br>
+                  Vehicle Type: Truck<br>
+                  Vehicle Category: Land <br>
+                  Owner: Barangay 1, Philippines<br>
+                  Number: <br>
+                  Vehicle Size: X Large Truck<br>
+                  Location: Barangay 1, Philippines<br>
+                  Length: 27 ft.<br>
+                  Width: 8 ft.<br>
+                  Height: 8 ft.<br>
+                  Maximum Capacity: 3356 kg.<br>
+                  Maximum distance in full tank: 917 miles";
+        }else if($model->supply == 2){
+            echo "PLATE NUMBER: APC-143<br>
+                  Model: <br>
+                  Vehicle Type: Truck<br>
+                  Vehicle Category: Land <br>
+                  Owner: Barangay 1, Philippines<br>
+                  Number: <br>
+                  Vehicle Size: Medium Truck<br>
+                  Location: Barangay 1, Philippines<br>
+                  Length: 15 ft.<br>
+                  Width: 8 ft.<br>
+                  Height: 7 ft.<br>
+                  Maximum Capacity: 2896 kg.<br>
+                  Maximum distance in full tank: 643 miles";
+        }else if($model->supply == 3 || $model->supply == 4){
+            echo "PLATE NUMBER: ABC-123<br>
+                  Model: U-Haul<br>
+                  Vehicle Type: Truck<br>
+                  Vehicle Category: Land <br>
+                  Owner: Barangay 1, Philippines<br>
+                  Number: <br>
+                  Vehicle Size: Small Truck<br>
+                  Location: Barangay 1, Philippines<br>
+                  Length: 10 ft.<br>
+                  Width: 6 ft.<br>
+                  Height: 6 ft.<br>
+                  Maximum Capacity: 1274 kg.<br>
+                  Maximum distance in full tank: 498 miles";
+        }else if($model->supply == 5){
+            echo "<b style='color: red'>System cannot find available vehicle. Click 'Text' to text the volunteers who lend their vehicles.</b>";
+        }
+    ?>
 
     <?php ActiveForm::end(); ?>
 

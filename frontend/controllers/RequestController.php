@@ -7,6 +7,7 @@ use common\models\ListOfSupply;
 use common\models\Supply;
 use common\models\User;
 use common\models\Vehicle;
+use GearmanClient;
 use Yii;
 use common\models\Request;
 use common\models\RequestSearch;
@@ -55,6 +56,24 @@ class RequestController extends Controller
      */
     public function actionIndex()
     {
+        /*$gmc = new GearmanClient();
+        $gmc->addServer();
+        $gmc->setCompleteCallback("reverse_complete");
+        $task = $gmc->addTask("reverse", "Hello World", null, "1");
+        $task= $gmc->addTaskHigh("reverse", "!dlroW olleH", null, "2");
+        $task= $gmc->addTask("reverse", "Hello World!", null, "3");
+        if (! $gmc->runTasks())
+        {
+            echo "ERROR " . $gmc->error() . "\n";
+            exit;
+        }
+        echo "DONE\n";
+
+        function reverse_complete($task)
+        {
+            echo "COMPLETE: " . $task->unique() . ", " . $task->data() . "\n";
+        }*/
+        
         $searchModel = new RequestSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->query->andFilterWhere(['delivery_status'=>'1']);
@@ -190,28 +209,12 @@ class RequestController extends Controller
 
     public function sendSms(){
 
-        $sms = new Sms();
-
-
-        $sms->transportType    = 'php'; // php
-        $sms->transportOptions = [
-            'host'       => 'smtp.gmail.com',     // Other domains can also be used
-            'username'   => 'johannaheramia@gmail.com',
-            'password'   => '<Hubby03>',
-            'port'       => '465',
-            'encryption' => 'ssl'
-        ];
-        $carrier = "T-Mobile";
-        $number = "+639261523128";
-        $subject = "ResponseAble";
-        $message = "This message is from responseable";
-        $sms->send($carrier, $number, $subject, $message);
-
         return $this->render(['intransit']);
     }
 
     public function actionConfirmation($id)
     {
+
         $model = $this->findModel($id);
         $model->scenario = 'confirmation';
 
@@ -243,6 +246,8 @@ class RequestController extends Controller
         $model->save();
         return $this->redirect(['intransit']);
     }
+
+
 
     /**
      * Deletes an existing Request model.
